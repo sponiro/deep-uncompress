@@ -1,0 +1,34 @@
+package de.fanero.uncompress.matcher;
+
+import de.fanero.uncompress.OneEntryArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+/**
+ * Created by Robert Kühne on 11.10.2014.
+ */
+public class GzipStreamMatcher implements StreamTypeMatcher {
+
+    @Override
+    public int neededHeaderSizeForDetection() {
+
+        return 2;
+    }
+
+    @Override
+    public boolean matches(byte[] header, String filename) {
+
+        return GzipCompressorInputStream.matches(header, header.length);
+    }
+
+    @Override
+    public ArchiveInputStream createStream(List<StreamTypeMatcher> detectors, InputStream input, ArchiveEntry archiveEntry) throws IOException {
+
+        return new OneEntryArchiveInputStream(new GzipCompressorInputStream(input), archiveEntry);
+    }
+}
