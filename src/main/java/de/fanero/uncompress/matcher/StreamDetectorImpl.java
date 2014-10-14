@@ -38,7 +38,7 @@ public class StreamDetectorImpl implements StreamDetector {
 
         for (StreamTypeMatcher detector : detectors) {
             if (detector.matches(header, name)) {
-                return detector.createStream(detectors, in, archiveEntry);
+                return detector.createStream(in, archiveEntry);
             }
         }
 

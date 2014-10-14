@@ -16,5 +16,5 @@ public interface StreamTypeMatcher {
 
     boolean matches(byte[] header, String filename);
 
-    ArchiveInputStream createStream(List<StreamTypeMatcher> detectors, InputStream input, ArchiveEntry archiveEntry) throws IOException;
+    ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException;
 }

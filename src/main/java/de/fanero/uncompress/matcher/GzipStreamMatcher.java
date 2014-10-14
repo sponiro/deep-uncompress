@@ -7,7 +7,6 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * Created by Robert Kühne on 11.10.2014.
@@ -27,7 +26,7 @@ public class GzipStreamMatcher implements StreamTypeMatcher {
     }
 
     @Override
-    public ArchiveInputStream createStream(List<StreamTypeMatcher> detectors, InputStream input, ArchiveEntry archiveEntry) throws IOException {
+    public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
 
         return new OneEntryArchiveInputStream(new GzipCompressorInputStream(input), archiveEntry);
     }
