@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by Robert Kühne on 11.10.2014.
+ * @author Robert Kühne
  */
 public class GzipStreamMatcher implements StreamTypeMatcher {
 

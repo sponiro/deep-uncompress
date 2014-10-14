@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Created by Robert on 30.09.2014.
+ * @author Robert Kühne
  */
 public interface StreamTypeMatcher {
 

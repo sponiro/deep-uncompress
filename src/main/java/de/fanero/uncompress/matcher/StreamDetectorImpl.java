@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Created by Robert Kühne on 05.10.2014.
+ * @author Robert Kühne
  */
 public class StreamDetectorImpl implements StreamDetector {
 

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by Robert Kühne on 03.10.2014.
+ * @author Robert Kühne
  */
 public class ZipStreamTypeMatcher implements StreamTypeMatcher {
 

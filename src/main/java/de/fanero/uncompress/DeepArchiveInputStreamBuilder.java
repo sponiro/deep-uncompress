@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Robert Kühne on 05.10.2014.
- */
-public class DeepArchiveInputStreamBuilder {
+ * @author Robert Kühne
+ */public class DeepArchiveInputStreamBuilder {
 
     private List<StreamTypeMatcher> detectors;
 

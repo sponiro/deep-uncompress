@@ -7,7 +7,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 
 /**
- * Created by Robert Kühne on 05.10.2014.
+ * @author Robert Kühne
  */
 public class BufferedArchiveInputStream  extends ArchiveInputStream {
 
