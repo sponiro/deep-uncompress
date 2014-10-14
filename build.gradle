@@ -1,15 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = '1.7'
-targetCompatibility = '1.7'
+def languageVersion = '1.7'
+sourceCompatibility = languageVersion
+targetCompatibility = languageVersion
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.8.1'
+    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.9'
     compile group: 'com.google.guava', name: 'guava', version: '18.0'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
@@ -18,7 +19,7 @@ dependencies {
 
 idea{
     project {
-        languageLevel = '1.7'
+        languageLevel = languageVersion
     }
     module {
         downloadJavadoc = true
