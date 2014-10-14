@@ -5,14 +5,14 @@ import org.apache.commons.compress.archivers.ArchiveEntry;
 import java.util.Date;
 
 /**
-* Created by Robert Kühne on 05.10.2014.
-*/
+ * @author Robert Kühne
+ */
 public class EmtpyArchiveEntry implements ArchiveEntry {
 
-    private static EmtpyArchiveEntry instance = new EmtpyArchiveEntry();
+    private static EmtpyArchiveEntry INSTANCE = new EmtpyArchiveEntry();
 
     public static EmtpyArchiveEntry getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     private EmtpyArchiveEntry() {

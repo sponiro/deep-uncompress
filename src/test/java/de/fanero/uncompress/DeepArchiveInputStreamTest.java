@@ -19,6 +19,9 @@ import java.util.Set;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
+/**
+ * @author Robert Kühne
+ */
 public class DeepArchiveInputStreamTest {
 
     @Rule

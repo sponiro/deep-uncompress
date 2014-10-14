@@ -1,5 +1,6 @@
 package de.fanero.uncompress;
 
+import com.google.common.io.Closeables;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 
@@ -7,8 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
-* Created by Robert Kühne on 03.10.2014.
-*/
+ * @author Robert Kühne
+ */
 public class OneEntryArchiveInputStream extends ArchiveInputStream {
 
     private InputStream in;
@@ -22,6 +23,7 @@ public class OneEntryArchiveInputStream extends ArchiveInputStream {
     @Override
     public ArchiveEntry getNextEntry() throws IOException {
 
+        Closeables.closeQuietly(in);
         ArchiveEntry entry = archiveEntry;
         archiveEntry = null;
         in = EmptyArchiveInputStream.getInstance();
