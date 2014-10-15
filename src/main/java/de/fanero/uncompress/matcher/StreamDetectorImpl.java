@@ -17,6 +17,7 @@ package de.fanero.uncompress.matcher;
 
 import com.google.common.base.Strings;
 import com.google.common.io.ByteStreams;
+import de.fanero.uncompress.EmtpyArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 
@@ -45,19 +46,30 @@ public class StreamDetectorImpl implements StreamDetector {
         }
 
         byte[] header = readHeader(in, headerSize);
-
-        String name = "";
-        if (archiveEntry != null) {
-            name = Strings.nullToEmpty(archiveEntry.getName());
-        }
+        archiveEntry = nullToEmpty(archiveEntry);
 
         for (StreamTypeMatcher detector : detectors) {
-            if (detector.matches(header, name)) {
-                return detector.createStream(in, archiveEntry);
+
+            StreamTypeMatcher.MatchResult matchResult = detector.matches(header, archiveEntry);
+
+            switch (matchResult) {
+                case MATCH:
+                    return detector.createStream(in, archiveEntry);
+                case NO_MATCH:
+                    break;
+                case STOP_MATCHING:
+                    return null;
             }
         }
-
         return null;
+    }
+
+    private ArchiveEntry nullToEmpty(ArchiveEntry entry) {
+        if (entry == null) {
+            return EmtpyArchiveEntry.getInstance();
+        } else {
+            return entry;
+        }
     }
 
     private byte[] readHeader(InputStream in, int headerSize) throws IOException {

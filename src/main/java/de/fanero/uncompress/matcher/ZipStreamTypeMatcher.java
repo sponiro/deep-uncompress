@@ -34,9 +34,9 @@ public class ZipStreamTypeMatcher implements StreamTypeMatcher {
     }
 
     @Override
-    public boolean matches(byte[] header, String filename) {
+    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
 
-        return ZipArchiveInputStream.matches(header, header.length);
+        return ZipArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
     }
 
     @Override

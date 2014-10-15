@@ -33,9 +33,9 @@ public class TarStreamTypeMatcher implements StreamTypeMatcher {
     }
 
     @Override
-    public boolean matches(byte[] header, String filename) {
+    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
 
-        return TarArchiveInputStream.matches(header, header.length);
+        return TarArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
     }
 
     @Override

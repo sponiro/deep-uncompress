@@ -27,9 +27,24 @@ import java.util.List;
  */
 public interface StreamTypeMatcher {
 
+    public static enum MatchResult {
+        /**
+         * A match has been found - stop processing
+         */
+        MATCH,
+        /**
+         * No match has been found - continue processing
+         */
+        NO_MATCH,
+        /**
+         * No match has been found - stop processing
+         */
+        STOP_MATCHING
+    }
+
     int neededHeaderSizeForDetection();
 
-    boolean matches(byte[] header, String filename);
+    MatchResult matches(byte[] header, ArchiveEntry archiveEntry);
 
     ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException;
 }

@@ -35,9 +35,9 @@ public class GzipStreamMatcher implements StreamTypeMatcher {
     }
 
     @Override
-    public boolean matches(byte[] header, String filename) {
+    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
 
-        return GzipCompressorInputStream.matches(header, header.length);
+        return GzipCompressorInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
     }
 
     @Override
