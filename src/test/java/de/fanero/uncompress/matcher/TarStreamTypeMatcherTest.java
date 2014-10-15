@@ -2,7 +2,7 @@ package de.fanero.uncompress.matcher;
 
 import com.google.common.io.ByteSource;
 import com.google.common.io.Files;
-import de.fanero.uncompress.DeepArchiveInputStreamBuilder;
+import de.fanero.uncompress.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
@@ -99,7 +99,7 @@ public class TarStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelpe
 
     protected void assertEntries(File file, final String... filenames) throws IOException {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         builder.register(new TarStreamTypeMatcher());
         builder.register(new ZipStreamTypeMatcher());
 

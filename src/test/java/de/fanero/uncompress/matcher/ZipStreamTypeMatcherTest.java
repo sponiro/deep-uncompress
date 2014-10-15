@@ -1,6 +1,6 @@
 package de.fanero.uncompress.matcher;
 
-import de.fanero.uncompress.DeepArchiveInputStreamBuilder;
+import de.fanero.uncompress.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.hamcrest.CoreMatchers;
 import org.junit.Rule;
@@ -94,7 +94,7 @@ public class ZipStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelpe
 
     protected void assertEntries(File file, final String... filenames) throws IOException {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         builder.register(new ZipStreamTypeMatcher());
 
         try (ArchiveInputStream inputStream = builder.build(new BufferedInputStream(new FileInputStream(file)))) {

@@ -49,7 +49,7 @@ public class DeepArchiveInputStreamTest {
     @Test
     public void testBuilderEmptyInputStream() throws Exception {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
 
         thrown.expect(NullPointerException.class);
         builder.build(null);
@@ -58,14 +58,14 @@ public class DeepArchiveInputStreamTest {
     @Test
     public void testBuilderNoRegisteredStreamDetectors() throws IOException {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         builder.build(load("file.zip"));
     }
 
     @Test
     public void testSimpleZip() throws Exception {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         builder.register(new ZipStreamTypeMatcher());
         ArchiveInputStream inputStream = builder.build(load("file.zip"));
 
@@ -80,7 +80,7 @@ public class DeepArchiveInputStreamTest {
     @Test
     public void testSimpleZip2() throws Exception {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         ArchiveEntry nextEntry;
         try (ArchiveInputStream inputStream = builder.build(load("file.zip"))) {
 
@@ -93,7 +93,7 @@ public class DeepArchiveInputStreamTest {
     @Test
     public void testTwoFilesZip() throws Exception {
 
-        DeepArchiveInputStreamBuilder builder = new DeepArchiveInputStreamBuilder();
+        DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
         builder.register(new ZipStreamTypeMatcher());
         try (ArchiveInputStream inputStream = builder.build(load("twofiles.zip"))) {
 

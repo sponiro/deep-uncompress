@@ -26,15 +26,16 @@ import java.util.List;
 
 /**
  * @author Robert Kühne
- */public class DeepArchiveInputStreamBuilder {
+ */
+public class DeepDetectionInputStreamBuilder {
 
     private List<StreamTypeMatcher> detectors;
 
-    public DeepArchiveInputStreamBuilder() {
+    public DeepDetectionInputStreamBuilder() {
         this.detectors = new ArrayList<>();
     }
 
-    public DeepArchiveInputStreamBuilder register(StreamTypeMatcher fileTypeDetector) {
+    public DeepDetectionInputStreamBuilder register(StreamTypeMatcher fileTypeDetector) {
 
         detectors.add(fileTypeDetector);
 
