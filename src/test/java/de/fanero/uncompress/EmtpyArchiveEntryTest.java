@@ -18,6 +18,7 @@ package de.fanero.uncompress;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -52,5 +53,8 @@ public class EmtpyArchiveEntryTest {
     @Test
     public void testGetLastModifiedDate() throws Exception {
 
+        EmtpyArchiveEntry entry = EmtpyArchiveEntry.getInstance();
+
+        assertThat(entry.getLastModifiedDate(), is(nullValue()));
     }
 }
