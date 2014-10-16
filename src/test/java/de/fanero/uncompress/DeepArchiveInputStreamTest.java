@@ -17,7 +17,7 @@ package de.fanero.uncompress;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
-import de.fanero.uncompress.matcher.ZipStreamTypeMatcher;
+import de.fanero.uncompress.matcher.ZipStreamMatcherFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.junit.Rule;
@@ -66,7 +66,7 @@ public class DeepArchiveInputStreamTest {
     public void testSimpleZip() throws Exception {
 
         DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
-        builder.register(new ZipStreamTypeMatcher());
+        builder.register(new ZipStreamMatcherFactory());
         ArchiveInputStream inputStream = builder.build(load("file.zip"));
 
         ArchiveEntry nextEntry = inputStream.getNextEntry();
@@ -94,7 +94,7 @@ public class DeepArchiveInputStreamTest {
     public void testTwoFilesZip() throws Exception {
 
         DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
-        builder.register(new ZipStreamTypeMatcher());
+        builder.register(new ZipStreamMatcherFactory());
         try (ArchiveInputStream inputStream = builder.build(load("twofiles.zip"))) {
 
             Set<String> names = new HashSet<>();

@@ -17,34 +17,31 @@ package de.fanero.uncompress.matcher;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * @author Robert Kühne
  */
-public interface StreamTypeMatcher {
+public class ZipStreamMatcherFactory implements StreamMatcherFactory {
 
-    public static enum MatchResult {
-        /**
-         * A match has been found - stop processing
-         */
-        MATCH,
-        /**
-         * No match has been found - continue processing
-         */
-        NO_MATCH,
-        /**
-         * No match has been found - stop processing
-         */
-        STOP_MATCHING
+    @Override
+    public int neededHeaderSizeForDetection() {
+
+        return 4;
     }
 
-    int neededHeaderSizeForDetection();
+    @Override
+    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
 
-    MatchResult matches(byte[] header, ArchiveEntry archiveEntry);
+        return ZipArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
+    }
 
-    ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException;
+    @Override
+    public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
+
+        return new ZipArchiveInputStream(input);
+    }
 }

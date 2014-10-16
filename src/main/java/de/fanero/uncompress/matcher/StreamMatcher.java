@@ -17,30 +17,32 @@ package de.fanero.uncompress.matcher;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author Robert Kühne
  */
-public class TarStreamTypeMatcher implements StreamTypeMatcher {
+public interface StreamMatcher {
 
-    @Override
-    public int neededHeaderSizeForDetection() {
-        return 512;
+    public static enum MatchResult {
+        /**
+         * A match has been found - stop processing
+         */
+        MATCH,
+        /**
+         * No match has been found - continue processing
+         */
+        NO_MATCH,
+        /**
+         * No match has been found - stop processing
+         */
+        STOP_MATCHING
     }
 
-    @Override
-    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
+    int neededHeaderSizeForDetection();
 
-        return TarArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
-    }
-
-    @Override
-    public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
-
-        return new TarArchiveInputStream(input);
-    }
+    MatchResult matches(byte[] header, ArchiveEntry archiveEntry);
 }

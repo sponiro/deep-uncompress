@@ -15,7 +15,6 @@
 */
 package de.fanero.uncompress.matcher;
 
-import com.google.common.base.Strings;
 import com.google.common.io.ByteStreams;
 import de.fanero.uncompress.EmtpyArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveEntry;
@@ -30,10 +29,10 @@ import java.util.List;
  */
 public class StreamDetectorImpl implements StreamDetector {
 
-    private final List<StreamTypeMatcher> detectors;
+    private final List<StreamMatcherFactory> detectors;
     private final int headerSize;
 
-    public StreamDetectorImpl(List<StreamTypeMatcher> detectors) {
+    public StreamDetectorImpl(List<StreamMatcherFactory> detectors) {
         this.detectors = detectors;
         this.headerSize = findMaxHeaderSize(0, detectors);
     }
@@ -48,9 +47,9 @@ public class StreamDetectorImpl implements StreamDetector {
         byte[] header = readHeader(in, headerSize);
         archiveEntry = nullToEmpty(archiveEntry);
 
-        for (StreamTypeMatcher detector : detectors) {
+        for (StreamMatcherFactory detector : detectors) {
 
-            StreamTypeMatcher.MatchResult matchResult = detector.matches(header, archiveEntry);
+            StreamMatcher.MatchResult matchResult = detector.matches(header, archiveEntry);
 
             switch (matchResult) {
                 case MATCH:
@@ -86,9 +85,9 @@ public class StreamDetectorImpl implements StreamDetector {
         return header;
     }
 
-    private int findMaxHeaderSize(int headerSize, List<StreamTypeMatcher> detectors) {
+    private int findMaxHeaderSize(int headerSize, List<StreamMatcherFactory> detectors) {
 
-        for (StreamTypeMatcher detector : detectors) {
+        for (StreamMatcher detector : detectors) {
             headerSize = Math.max(detector.neededHeaderSizeForDetection(), headerSize);
         }
         return headerSize;

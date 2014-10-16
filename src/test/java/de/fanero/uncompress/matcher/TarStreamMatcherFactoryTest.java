@@ -20,7 +20,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertThat;
 
-public class TarStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelper {
+public class TarStreamMatcherFactoryTest extends AbstractStreamTypeMatcherTestHelper {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
@@ -100,8 +100,8 @@ public class TarStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelpe
     protected void assertEntries(File file, final String... filenames) throws IOException {
 
         DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
-        builder.register(new TarStreamTypeMatcher());
-        builder.register(new ZipStreamTypeMatcher());
+        builder.register(new TarStreamMatcherFactory());
+        builder.register(new ZipStreamMatcherFactory());
 
         try (ArchiveInputStream inputStream = builder.build(new BufferedInputStream(new FileInputStream(file)))) {
 

@@ -15,10 +15,9 @@
 */
 package de.fanero.uncompress.matcher;
 
-import de.fanero.uncompress.OneEntryArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,23 +25,22 @@ import java.io.InputStream;
 /**
  * @author Robert Kühne
  */
-public class GzipStreamMatcher implements StreamTypeMatcher {
+public class TarStreamMatcherFactory implements StreamMatcherFactory {
 
     @Override
     public int neededHeaderSizeForDetection() {
-
-        return 2;
+        return 512;
     }
 
     @Override
     public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
 
-        return GzipCompressorInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
+        return TarArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
     }
 
     @Override
     public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
 
-        return new OneEntryArchiveInputStream(new GzipCompressorInputStream(input), archiveEntry);
+        return new TarArchiveInputStream(input);
     }
 }

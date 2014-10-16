@@ -16,7 +16,8 @@
 package de.fanero.uncompress;
 
 import de.fanero.uncompress.matcher.StreamDetectorImpl;
-import de.fanero.uncompress.matcher.StreamTypeMatcher;
+import de.fanero.uncompress.matcher.StreamMatcher;
+import de.fanero.uncompress.matcher.StreamMatcherFactory;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 
 import java.io.IOException;
@@ -29,13 +30,13 @@ import java.util.List;
  */
 public class DeepDetectionInputStreamBuilder {
 
-    private List<StreamTypeMatcher> detectors;
+    private List<StreamMatcherFactory> detectors;
 
     public DeepDetectionInputStreamBuilder() {
         this.detectors = new ArrayList<>();
     }
 
-    public DeepDetectionInputStreamBuilder register(StreamTypeMatcher fileTypeDetector) {
+    public DeepDetectionInputStreamBuilder register(StreamMatcherFactory fileTypeDetector) {
 
         detectors.add(fileTypeDetector);
 

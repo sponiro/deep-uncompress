@@ -15,7 +15,7 @@ import java.util.zip.ZipOutputStream;
 
 import static org.junit.Assert.assertThat;
 
-public class ZipStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelper {
+public class ZipStreamMatcherFactoryTest extends AbstractStreamTypeMatcherTestHelper {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
@@ -95,7 +95,7 @@ public class ZipStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelpe
     protected void assertEntries(File file, final String... filenames) throws IOException {
 
         DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
-        builder.register(new ZipStreamTypeMatcher());
+        builder.register(new ZipStreamMatcherFactory());
 
         try (ArchiveInputStream inputStream = builder.build(new BufferedInputStream(new FileInputStream(file)))) {
 

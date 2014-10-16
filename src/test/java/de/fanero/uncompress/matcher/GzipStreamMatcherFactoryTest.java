@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Robert Kühne on 11.10.2014.
  */
-public class GzipStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelper {
+public class GzipStreamMatcherFactoryTest extends AbstractStreamTypeMatcherTestHelper {
 
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
@@ -71,8 +71,8 @@ public class GzipStreamTypeMatcherTest extends AbstractStreamTypeMatcherTestHelp
     protected void assertEntries(File file, final String... filenames) throws IOException {
 
         DeepDetectionInputStreamBuilder builder = new DeepDetectionInputStreamBuilder();
-        builder.register(new GzipStreamMatcher());
-        builder.register(new ZipStreamTypeMatcher());
+        builder.register(new GzipStreamMatcherFactory());
+        builder.register(new ZipStreamMatcherFactory());
 
         try (ArchiveInputStream inputStream = builder.build(new BufferedInputStream(new FileInputStream(file)))) {
 
