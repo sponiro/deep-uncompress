@@ -15,32 +15,14 @@
 */
 package de.fanero.uncompress.matcher;
 
-import org.apache.commons.compress.archivers.ArchiveEntry;
-import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-
-import java.io.IOException;
-import java.io.InputStream;
+import de.fanero.uncompress.factory.TarStreamFactory;
 
 /**
  * @author Robert Kühne
  */
-public class TarStreamMatcherFactory implements StreamMatcherFactory {
+public class TarStreamMatcherFactory extends MatcherStreamFactory {
 
-    @Override
-    public int neededHeaderSizeForDetection() {
-        return 512;
-    }
-
-    @Override
-    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
-
-        return TarArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
-    }
-
-    @Override
-    public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
-
-        return new TarArchiveInputStream(input);
+    public TarStreamMatcherFactory() {
+        super(new TarStreamMatcher(), new TarStreamFactory());
     }
 }
