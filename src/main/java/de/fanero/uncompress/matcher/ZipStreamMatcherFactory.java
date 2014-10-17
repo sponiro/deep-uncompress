@@ -15,6 +15,7 @@
 */
 package de.fanero.uncompress.matcher;
 
+import de.fanero.uncompress.factory.ZipStreamFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
@@ -25,23 +26,9 @@ import java.io.InputStream;
 /**
  * @author Robert Kühne
  */
-public class ZipStreamMatcherFactory implements StreamMatcherFactory {
+public class ZipStreamMatcherFactory extends MatcherStreamFactory {
 
-    @Override
-    public int neededHeaderSizeForDetection() {
-
-        return 4;
-    }
-
-    @Override
-    public MatchResult matches(byte[] header, ArchiveEntry archiveEntry) {
-
-        return ZipArchiveInputStream.matches(header, header.length) ? MatchResult.MATCH : MatchResult.NO_MATCH;
-    }
-
-    @Override
-    public ArchiveInputStream createStream(InputStream input, ArchiveEntry archiveEntry) throws IOException {
-
-        return new ZipArchiveInputStream(input);
+    public ZipStreamMatcherFactory() {
+        super(new ZipStreamMatcher(), new ZipStreamFactory());
     }
 }
