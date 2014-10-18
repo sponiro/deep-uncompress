@@ -1,7 +1,10 @@
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
 import com.google.common.io.ByteSource;
 import com.google.common.io.Files;
+import de.fanero.uncompress.glue.TarStreamMatcherFactory;
+import de.fanero.uncompress.glue.ZipStreamMatcherFactory;
+import de.fanero.uncompress.matcher.AbstractStreamTypeMatcherTestHelper;
 import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;

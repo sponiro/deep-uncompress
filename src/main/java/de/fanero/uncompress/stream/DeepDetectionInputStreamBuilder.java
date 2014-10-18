@@ -15,8 +15,7 @@
 */
 package de.fanero.uncompress.stream;
 
-import de.fanero.uncompress.matcher.StreamDetectorImpl;
-import de.fanero.uncompress.matcher.StreamMatcherFactory;
+import de.fanero.uncompress.glue.StreamMatcherFactory;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 
 import java.io.IOException;

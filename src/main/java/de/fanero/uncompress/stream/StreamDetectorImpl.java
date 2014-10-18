@@ -13,10 +13,13 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.stream;
 
 import com.google.common.io.ByteStreams;
+import de.fanero.uncompress.glue.StreamMatcherFactory;
+import de.fanero.uncompress.matcher.StreamMatcher;
 import de.fanero.uncompress.stream.EmtpyArchiveEntry;
+import de.fanero.uncompress.stream.StreamDetector;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 

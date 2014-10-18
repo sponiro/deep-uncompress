@@ -1,6 +1,7 @@
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
 import de.fanero.uncompress.factory.ArchiveInputStreamFactory;
+import de.fanero.uncompress.matcher.StreamMatcher;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 

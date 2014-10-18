@@ -13,18 +13,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
-import org.apache.commons.compress.archivers.ArchiveEntry;
-import org.apache.commons.compress.archivers.ArchiveInputStream;
-
-import java.io.IOException;
-import java.io.InputStream;
+import de.fanero.uncompress.factory.ZipStreamFactory;
+import de.fanero.uncompress.glue.MatcherStreamFactory;
+import de.fanero.uncompress.matcher.ZipStreamMatcher;
 
 /**
  * @author Robert Kühne
  */
-public interface StreamDetector {
+public class ZipStreamMatcherFactory extends MatcherStreamFactory {
 
-    ArchiveInputStream detectAndCreateInputStream(InputStream in, ArchiveEntry archiveEntry) throws IOException;
+    public ZipStreamMatcherFactory() {
+        super(new ZipStreamMatcher(), new ZipStreamFactory());
+    }
 }

@@ -19,8 +19,7 @@ public class PatternStreamMatcherTest {
     @Test
     public void testPositiveMatch() throws Exception {
 
-        ArchiveInputStreamFactory factory = Mockito.mock(ArchiveInputStreamFactory.class);
-        PatternStreamMatcher matcher = new PatternStreamMatcher(factory);
+        PatternStreamMatcher matcher = new PatternStreamMatcher();
         Pattern pattern = Pattern.compile(".*\\.tar");
 
         matcher.addPattern(pattern);
@@ -31,8 +30,7 @@ public class PatternStreamMatcherTest {
     @Test
     public void testNoMatch() throws Exception {
 
-        ArchiveInputStreamFactory factory = Mockito.mock(ArchiveInputStreamFactory.class);
-        PatternStreamMatcher matcher = new PatternStreamMatcher(factory);
+        PatternStreamMatcher matcher = new PatternStreamMatcher();
         Pattern pattern = Pattern.compile(".*\\.tar");
 
         matcher.addPattern(pattern);

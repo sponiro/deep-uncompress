@@ -13,16 +13,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
-import de.fanero.uncompress.factory.GzipStreamFactory;
+import de.fanero.uncompress.factory.TarStreamFactory;
+import de.fanero.uncompress.glue.MatcherStreamFactory;
+import de.fanero.uncompress.matcher.TarStreamMatcher;
 
 /**
  * @author Robert Kühne
  */
-public class GzipStreamMatcherFactory extends MatcherStreamFactory {
+public class TarStreamMatcherFactory extends MatcherStreamFactory {
 
-    public GzipStreamMatcherFactory() {
-        super(new GzipStreamMatcher(), new GzipStreamFactory());
+    public TarStreamMatcherFactory() {
+        super(new TarStreamMatcher(), new TarStreamFactory());
     }
 }

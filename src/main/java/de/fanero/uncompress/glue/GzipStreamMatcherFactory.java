@@ -13,22 +13,17 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
-import de.fanero.uncompress.factory.ZipStreamFactory;
-import org.apache.commons.compress.archivers.ArchiveEntry;
-import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
-
-import java.io.IOException;
-import java.io.InputStream;
+import de.fanero.uncompress.factory.GzipStreamFactory;
+import de.fanero.uncompress.matcher.GzipStreamMatcher;
 
 /**
  * @author Robert Kühne
  */
-public class ZipStreamMatcherFactory extends MatcherStreamFactory {
+public class GzipStreamMatcherFactory extends MatcherStreamFactory {
 
-    public ZipStreamMatcherFactory() {
-        super(new ZipStreamMatcher(), new ZipStreamFactory());
+    public GzipStreamMatcherFactory() {
+        super(new GzipStreamMatcher(), new GzipStreamFactory());
     }
 }

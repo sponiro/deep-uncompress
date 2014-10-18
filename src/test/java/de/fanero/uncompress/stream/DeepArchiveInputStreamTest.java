@@ -13,12 +13,11 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress;
+package de.fanero.uncompress.stream;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
-import de.fanero.uncompress.matcher.ZipStreamMatcherFactory;
-import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
+import de.fanero.uncompress.glue.ZipStreamMatcherFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.junit.Rule;

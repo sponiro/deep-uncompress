@@ -1,5 +1,7 @@
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.glue;
 
+import de.fanero.uncompress.glue.ZipStreamMatcherFactory;
+import de.fanero.uncompress.matcher.AbstractStreamTypeMatcherTestHelper;
 import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.hamcrest.CoreMatchers;

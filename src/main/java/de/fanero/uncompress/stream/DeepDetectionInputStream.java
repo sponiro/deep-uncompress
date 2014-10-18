@@ -16,7 +16,6 @@
 package de.fanero.uncompress.stream;
 
 import com.google.common.base.Preconditions;
-import de.fanero.uncompress.matcher.StreamDetector;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 

@@ -13,16 +13,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.stream;
 
-import de.fanero.uncompress.factory.TarStreamFactory;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author Robert Kühne
  */
-public class TarStreamMatcherFactory extends MatcherStreamFactory {
+public interface StreamDetector {
 
-    public TarStreamMatcherFactory() {
-        super(new TarStreamMatcher(), new TarStreamFactory());
-    }
+    ArchiveInputStream detectAndCreateInputStream(InputStream in, ArchiveEntry archiveEntry) throws IOException;
 }
