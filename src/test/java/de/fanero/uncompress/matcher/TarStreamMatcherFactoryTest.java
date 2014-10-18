@@ -2,7 +2,7 @@ package de.fanero.uncompress.matcher;
 
 import com.google.common.io.ByteSource;
 import com.google.common.io.Files;
-import de.fanero.uncompress.DeepDetectionInputStreamBuilder;
+import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;

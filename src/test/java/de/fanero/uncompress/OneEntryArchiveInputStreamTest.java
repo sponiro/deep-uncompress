@@ -15,6 +15,8 @@
 */
 package de.fanero.uncompress;
 
+import de.fanero.uncompress.stream.EmtpyArchiveEntry;
+import de.fanero.uncompress.stream.OneEntryArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.junit.Test;
 import org.mockito.Mockito;

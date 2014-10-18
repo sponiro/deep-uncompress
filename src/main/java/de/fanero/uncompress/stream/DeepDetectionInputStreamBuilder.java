@@ -13,10 +13,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress;
+package de.fanero.uncompress.stream;
 
 import de.fanero.uncompress.matcher.StreamDetectorImpl;
-import de.fanero.uncompress.matcher.StreamMatcher;
 import de.fanero.uncompress.matcher.StreamMatcherFactory;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 

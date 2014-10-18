@@ -15,6 +15,7 @@
 */
 package de.fanero.uncompress;
 
+import de.fanero.uncompress.stream.EmptyArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.junit.Test;
 

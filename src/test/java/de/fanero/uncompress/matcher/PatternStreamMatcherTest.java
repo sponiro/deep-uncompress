@@ -1,5 +1,6 @@
 package de.fanero.uncompress.matcher;
 
+import de.fanero.uncompress.factory.ArchiveInputStreamFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.junit.Test;
 import org.mockito.Mockito;

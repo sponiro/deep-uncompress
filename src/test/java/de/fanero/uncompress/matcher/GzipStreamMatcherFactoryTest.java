@@ -1,6 +1,6 @@
 package de.fanero.uncompress.matcher;
 
-import de.fanero.uncompress.DeepDetectionInputStreamBuilder;
+import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import org.hamcrest.CoreMatchers;

@@ -18,6 +18,7 @@ package de.fanero.uncompress;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 import de.fanero.uncompress.matcher.ZipStreamMatcherFactory;
+import de.fanero.uncompress.stream.DeepDetectionInputStreamBuilder;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.junit.Rule;

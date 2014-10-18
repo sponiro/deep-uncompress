@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package de.fanero.uncompress;
+package de.fanero.uncompress.stream;
 
 import com.google.common.base.Preconditions;
 import de.fanero.uncompress.matcher.StreamDetector;

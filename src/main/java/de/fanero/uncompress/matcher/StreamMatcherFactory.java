@@ -1,5 +1,7 @@
 package de.fanero.uncompress.matcher;
 
+import de.fanero.uncompress.factory.ArchiveInputStreamFactory;
+
 /**
  * @author Robert Kühne
  */

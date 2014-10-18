@@ -1,4 +1,4 @@
-package de.fanero.uncompress.matcher;
+package de.fanero.uncompress.factory;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;

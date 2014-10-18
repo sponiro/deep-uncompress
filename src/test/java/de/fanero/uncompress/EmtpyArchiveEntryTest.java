@@ -15,6 +15,7 @@
 */
 package de.fanero.uncompress;
 
+import de.fanero.uncompress.stream.EmtpyArchiveEntry;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

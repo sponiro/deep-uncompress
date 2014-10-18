@@ -16,7 +16,7 @@
 package de.fanero.uncompress.matcher;
 
 import com.google.common.io.ByteStreams;
-import de.fanero.uncompress.EmtpyArchiveEntry;
+import de.fanero.uncompress.stream.EmtpyArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 

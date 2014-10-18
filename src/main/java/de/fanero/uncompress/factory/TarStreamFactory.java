@@ -1,6 +1,5 @@
 package de.fanero.uncompress.factory;
 
-import de.fanero.uncompress.matcher.ArchiveInputStreamFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;

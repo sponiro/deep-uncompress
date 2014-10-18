@@ -1,5 +1,6 @@
 package de.fanero.uncompress.matcher;
 
+import de.fanero.uncompress.factory.ArchiveInputStreamFactory;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveInputStream;
 
@@ -13,7 +14,7 @@ import java.util.regex.Pattern;
 /**
  * @author Robert Kühne
  */
-public class PatternStreamMatcher implements StreamMatcher, ArchiveInputStreamFactory {
+public class PatternStreamMatcher implements StreamMatcherFactory {
 
     private final ArchiveInputStreamFactory archiveInputStreamFactory;
     private List<Pattern> patterns;
